@@ -2,6 +2,8 @@ import * as React from 'react'
 import * as ReactDOM from 'react-dom'
 import { Button} from '@material-ui/core'
 
+import MarkdownPane from './components/markdown_pane'
+
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 
@@ -34,17 +36,24 @@ const renderTree = (node) => {
     </TreeItem>
 }
 
+const md = `
+# Markdown
+
+This is a *quick test* of [Markdown](https://www.markdownguide.org/)
+`
+
 const Index = () => {
     return (
         <div>
             <div>Hello World</div>
-            <Button>Button</Button>
+            <Button variant="contained" color="primary">Button</Button>
             <TreeView
                 defaultCollapseIcon={<ExpandMoreIcon/>}
                 defaultExpandIcon={<ChevronRightIcon/>}
             >
                 {renderTree(data)}
             </TreeView>
+            <MarkdownPane  markdown={md}/>
         </div>
     )
 }
